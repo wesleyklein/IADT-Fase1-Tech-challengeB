@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../python-rep"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../temp"
+		}
+	],
+	"settings": {
+		"python-envs.defaultEnvManager": "ms-python.python:system",
+		"notebook.output.textLineLimit": 100
+	}
+}
