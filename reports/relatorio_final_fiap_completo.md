@@ -1,12 +1,17 @@
 # Sistema Inteligente de Apoio ao Diagnóstico de Câncer de Mama
 
-**Projeto:** FIAP – IADT Fase 1 – Tech Challenge B  
-**Tema:** Machine Learning aplicado ao apoio ao diagnóstico médico  
-**Dataset:** Breast Cancer Wisconsin Diagnostic Dataset  
-**Problema:** Classificação de tumores em benignos ou malignos  
-**Autor:** Wesley Adolpho de Lima Klein  
-**Curso:** IA para Devs - Pós Tech - 9IADT
-**Data:** 01/05/2026
+- **Grupo** 153
+- **Link do vídeo no YouTube** https://youtu.be/dtRQA70C1fQ
+- **Participante(s):** Wesley Adolpho de Lima Klein  
+- **Referência**  "IADT - Fase 1 - Tech challenge B.pdf"
+- **Repositório Git** https://github.com/wesleyklein/IADT-Fase1-Tech-challengeB 
+- **Projeto:** FIAP – IADT Fase 1 – Tech Challenge B  
+- **Tema:** Machine Learning aplicado ao apoio ao diagnóstico médico  
+- **Dataset:** Breast Cancer Wisconsin Diagnostic Dataset  
+- **Problema:** Classificação de tumores em benignos ou malignos  
+- **Curso:** IA para Devs - Pós Tech - 9IADT
+- **Data:** 01/05/2026
+
 
 ---
 
@@ -778,118 +783,19 @@ Isso reforça a análise de correlação: variáveis relacionadas à irregularid
 ![alt text](figures/image-31.png)
 
 
-### 18.4 SHAP
-
-
-
-SHAP (*Shapley Additive exPlanations*) foi utilizado neste projeto como uma técnica complementar de interpretabilidade local, com o objetivo de explicar por que o modelo classificou um caso específico como benigno ou maligno.
-
-Enquanto os coeficientes da Regressão Logística oferecem uma visão global do comportamento do modelo, o SHAP foi usado para detalhar a contribuição de cada variável em previsões individuais. Assim, foi possível identificar quais características empurraram a decisão para a classe maligna e quais atuaram no sentido contrário.
-
-Na prática, essa abordagem permitiu analisar casos específicos e mostrar, de forma visual e interpretável, o impacto de variáveis como raio, área, concavidade e pontos côncavos na predição final. Isso torna a decisão do modelo mais transparente e facilita a comunicação dos resultados em um contexto médico.
-
-Dessa forma, no presente trabalho, o SHAP não substituiu a análise dos coeficientes nem a avaliação das métricas do modelo. Ele foi utilizado como complemento para reforçar a explicabilidade do sistema e oferecer uma justificativa mais clara para decisões individuais geradas pelo modelo final.
-
 ---
 
-## 19. Resposta Clínica Interpretável
 
-Uma forma simples de explicar uma predição seria:
-
-> O modelo classificou este tumor como maligno porque algumas características apresentaram valores associados a maior risco, principalmente raio elevado, área elevada, concavidade alta e presença de pontos côncavos. Essas variáveis indicam maior irregularidade e tamanho do tumor, padrões que, na base analisada, aparecem com maior frequência em casos malignos.
-
-Essa explicação não deve ser interpretada como diagnóstico final. Ela apenas mostra os motivos estatísticos que influenciaram a decisão do modelo.
-
-A decisão final sempre deve ser feita por um profissional de saúde.
-
----
-
-## 20. Discussão Crítica
-
-### 20.1 O modelo pode ser usado na prática?
-
-O modelo pode ser usado como uma ferramenta de apoio à triagem, mas não como substituto do diagnóstico médico.
-
-Ele poderia auxiliar em situações como:
-
-- Priorização de casos suspeitos.
-- Apoio à análise inicial.
-- Segunda opinião automatizada.
-- Identificação de casos que merecem investigação adicional.
-
-### 20.2 Limitações
-
-Apesar dos bons resultados, existem limitações:
-
-- A base é relativamente pequena.
-- O dataset é público e controlado, diferente de um ambiente hospitalar real.
-- O modelo não considera histórico clínico completo do paciente.
-- O modelo não substitui exames complementares.
-- A validação externa em outros datasets seria necessária.
-
-### 20.3 Risco de falso positivo
-
-Ao priorizar recall, o modelo pode aumentar falsos positivos. Isso significa que alguns tumores benignos podem ser sinalizados como malignos.
-
-Esse erro pode gerar ansiedade e exames adicionais, mas é geralmente menos grave do que um falso negativo em triagem oncológica.
-
-### 20.4 Papel do médico
-
-A IA deve apoiar a decisão, mas o médico deve ter a palavra final.
-
-O modelo deve ser visto como ferramenta auxiliar para aumentar eficiência, reduzir erros e apoiar decisões clínicas, nunca como autoridade diagnóstica isolada.
-
-
-### 20.5 Conclusão
-
-![alt text](figures/image-24.png)
-
----
-
-## 21. Organização do Projeto
-
-A estrutura sugerida do projeto é:
-
-```text
-IADT-Fase1-Tech-challengeB/
-│
-├── data/
-│   ├── breast-cancer-wisconsin-data.csv
-│   └── breast-cancer-wisconsin-data-clean.csv
-│
-├── notebooks/
-│   ├── 01_exploracao_dados.ipynb
-│   ├── 02_clean.ipynb
-│   ├── 03_clean_column.ipynb
-│   ├── 04_correlation.ipynb
-│   ├── 05_graphics.ipynb
-│   ├── 06_data_division.ipynb
-│   └── 07_model_comparison_and_tuning.ipynb
-│
-├── reports/
-│   ├── figures/
-│   ├── tables/
-│   └── relatorio_final.pdf
-│
-├── requirements.txt
-├── Dockerfile
-└── README.md
-```
-
----
-
-## 25. Conclusão Final
+### 19 Conclusão
 
 O projeto demonstrou que é possível construir uma solução inicial de Machine Learning para apoio ao diagnóstico de câncer de mama utilizando dados estruturados.
 
-A Regressão Logística Otimizada foi escolhida como melhor modelo final por apresentar o melhor equilíbrio entre desempenho, recall da classe maligna e interpretabilidade.
+O principal objetivo do projeto foi reduzir falsos negativos
 
-O principal objetivo do projeto foi reduzir falsos negativos, pois, em um contexto médico, deixar de identificar um tumor maligno é o erro mais grave.
+O modelo final conseguiu identificar **42 dos 43 casos malignos**
 
-O modelo final conseguiu identificar **42 dos 43 casos malignos** no conjunto de teste, mantendo alta acurácia e boa precisão.
+Além disso, o ajuste do threshold para 0.45 mostrou que a sensibilidade do modelo pode ser calibrada de acordo com o contexto clínico
 
-Além disso, o ajuste do threshold para 0.45 mostrou que a sensibilidade do modelo pode ser calibrada de acordo com o contexto clínico, aumentando a capacidade de identificar casos malignos.
-
-Mesmo com resultados promissores, o modelo deve ser utilizado apenas como ferramenta de apoio. A decisão final deve continuar sob responsabilidade médica.
+Mesmo com resultados promissores, o modelo deve ser utilizado apenas como ferramenta de apoio. 
 
 ---

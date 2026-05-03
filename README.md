@@ -22,7 +22,6 @@ IADT-Fase1-Tech-challengeB/
 ├── data/                          # Dataset original e base tratada
 ├── docs/                          # Materiais de apoio e documentação do desafio
 ├── notebooks/                     # Pipeline principal do projeto
-├── notebooks - Cópia/             # Cópia de segurança dos notebooks
 ├── reports/
 │   ├── figures/                   # Imagens usadas no relatório
 │   ├── tables/                    # Tabelas em CSV geradas pelos notebooks
@@ -30,9 +29,7 @@ IADT-Fase1-Tech-challengeB/
 │   ├── relatorio_final_fiap_completo.html
 │   └── relatorio_final_fiap_completo.pdf
 ├── src/                           # Pasta reservada para scripts futuros
-├── src-load-data/                 # Scripts auxiliares de carga de dados
 ├── Dockerfile                     # Ambiente com Python + Jupyter Notebook
-├── Passo-A-Passo.md               # Anotações de apoio do projeto
 ├── requirements.txt               # Dependências Python
 └── README.md                      # Este guia de avaliação
 ```
@@ -95,27 +92,24 @@ Os notebooks foram organizados para contar a evolução do projeto do início ao
 - `notebooks/02_clean.ipynb`  
   Remove colunas desnecessárias, como identificadores sem valor preditivo.
 
-- `notebooks/03_clean_column.ipynb`  
-  Converte a variável alvo para formato numérico e salva a base tratada.
-
-- `notebooks/04_correlation.ipynb`  
+- `notebooks/03_correlation.ipynb`  
   Analisa correlação entre atributos e a variável alvo.
 
-- `notebooks/05_graphics.ipynb`  
+- `notebooks/04_graphics.ipynb`  
   Gera visualizações para entender a distribuição das classes.
 
-- `notebooks/06_data_division.ipynb`  
+- `notebooks/05_data_division.ipynb`  
   Inicia a modelagem: separa `X` e `y`, divide treino e teste, aplica `StandardScaler` e executa a primeira avaliação dos modelos.
 
-- `notebooks/07_model_comparison_and_tuning.ipynb`  
+- `notebooks/06_model_comparison_and_tuning.ipynb`  
   Consolida a parte principal da análise: comparação de modelos, matrizes de confusão, validação cruzada, `GridSearchCV`, interpretabilidade, ajuste de threshold e geração dos artefatos finais usados no relatório.
 
 ### Dica para avaliação
 
 Se o objetivo for entender rapidamente o valor analítico do projeto, os dois notebooks mais importantes são:
 
-- `06_data_division.ipynb`
-- `07_model_comparison_and_tuning.ipynb`
+- `05_data_division.ipynb`
+- `06_model_comparison_and_tuning.ipynb`
 
 Os notebooks anteriores mostram a preparação da base e justificam as transformações aplicadas.
 
